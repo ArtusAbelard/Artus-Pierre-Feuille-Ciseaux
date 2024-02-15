@@ -6,13 +6,10 @@ import { useState } from 'react'
 
 export default function Picked(props) {
     
-    const [txtwinner, settxtwinner] = useState("YOU WIN")
     
     function btnacceuil() {
-        props.setactive("acceuil")
-        
+        props.setactive("acceuil") 
     }
-
 
     return (
         <div className="w-screen flex justify-center items-center flex-col gap-14 pt-14">
@@ -30,7 +27,8 @@ export default function Picked(props) {
                     </div>
                 </div>
                 <div className="w-1/3 h-full flex flex-col justify-center items-center text-white text-6xl font-bold gap-7">
-                    <h1>{txtwinner}</h1>
+                    <h1>{props.choix==props.choixenemy?"EQUALITY"
+                        :(props.choix=="rock" && props.choixenemy == "scissors")|| (props.choix == "scissors" && props.choixenemy == "paper") || (props.choix == "paper") && (props.choixenemy == "rock")?"YOU WIN":"YOU LOSE"}</h1>
                     <button onClick={btnacceuil} className='w-[290px] h-[60px] rounded-xl bg-white text-red-700 font-semibold text-xl'>PLAY AGAIN</button>
 
                 </div>

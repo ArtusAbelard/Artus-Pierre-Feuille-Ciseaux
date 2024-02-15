@@ -12,16 +12,16 @@ function App() {
   const [active, setactive] = useState("acceuil")
   const [choix, setchoix] = useState("")
 
-  const [choixenemy, setchoixenemy] = useState("paper")
-  const [rdmnumber, setrdmnumber] = useState()
+  const [choixenemy, setchoixenemy] = useState("")
+  const [txtwinner, settxtwinner] = useState("")
   function choixenemie(params) {
-    if (rdmnumber==0) {
+    if ((Math.floor(Math.random() * 3))==0) {
       setchoixenemy("paper")
       console.log(choixenemy);
-    }else if (rdmnumber==1) {
+    }else if ((Math.floor(Math.random() * 3))==1) {
       setchoixenemy("scissors")
       console.log(choixenemy);
-    }else if (rdmnumber==2) {
+    }else if ((Math.floor(Math.random() * 3))==2) {
       setchoixenemy("rock")
       console.log(choixenemy);
     }
@@ -29,14 +29,41 @@ function App() {
 
   function btnacceuil() {
     setactive("picked")
-    console.log(choix);
   }
-  
   function rulesshow() {
     rules.current.classList.toggle("hidden")
   }
+  // function resultat() {
+  //       if (choix==choixenemy) {
+  //           console.log("egalité");
+  //           settxtwinner("EGALITE")
+  //       }else if ((choix == "rock" && choixenemy == "scissors") || (choix == "scissors" && choixenemy == "paper") || (choix == "paper") && (choixenemy == "rock")) {
+  //           console.log("gg");
+  //           settxtwinner("YOU WIN")
+  //       }else{
+  //           settxtwinner("YOU LOSE")
+  //           console.log("perdu");
+  //       }
+  //   }
+function btnacceuil() {
+  setactive("picked")
+  setchoix("paper")
   
+  choixenemie()
   
+}
+function btnacceuilscissors() {
+  setactive("picked")
+  setchoix("scissors")
+  choixenemie()
+  
+}
+ function btnacceuilrock() {
+  setactive("picked")
+  setchoix("rock")
+  choixenemie()
+  
+}
   return (
     <div className=' w-screen h-screen flex justify-center items-center flex-col'>
       <div className='w-1/2 h-[200px] rounded-2xl border-[4px] flex '>
@@ -52,7 +79,7 @@ function App() {
             </div>
             </div>
       {
-        active == "picked" ? <Picked choixenemy={choixenemy} choix={choix} setactive={setactive} active={active} ></Picked> : <Acceuil choixenemie={choixenemie} rdmnumber={rdmnumber} setrdmnumber={setrdmnumber} choix={choix} setchoix={setchoix}  setactive={setactive} active={active} imgacceuil={imgacceuil}></Acceuil>
+        active == "picked" ? <Picked count={count} setCount={setCount} settxtwinner={settxtwinner} txtwinner={txtwinner} choixenemy={choixenemy} choix={choix} setactive={setactive} active={active} ></Picked> : <Acceuil btnacceuilrock={btnacceuilrock} btnacceuilscissors={btnacceuilscissors} btnacceuil={btnacceuil} choixenemie={choixenemie} choix={choix} setchoix={setchoix}  setactive={setactive} active={active} imgacceuil={imgacceuil}></Acceuil>
       }
       <div className='w-[90%] h-[100px] top-[88%] flex justify-end items-center'>
         <button onClick={rulesshow} className='text-white font-semibold text-xl tracking-widest w-[170px] h-[50px] rounded-xl me-5 border-[2px]'>RULES</button>
@@ -66,3 +93,5 @@ function App() {
 }
 
 export default App
+
+// (choix=="rock" && choixenemy == "scissors")|| (choix == "scissors" && choixenemy == "paper") || (choix == "paper") && (choixenemy == "rock")?(count+setCount(count+1)):(count+setCount(count-1))
