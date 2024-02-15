@@ -7,13 +7,13 @@ export default function Acceuil(props) {
     function btnacceuil() {
         props.setactive("picked")
         props.setchoix("paper")
-        setrdmnumber(Math.floor(Math.random() * 3))
+        props.setrdmnumber(Math.floor(Math.random() * 3))
         props.choixenemie()
      }
     function btnacceuilscissors() {
         props.setactive("picked")
         props.setchoix("scissors")
-        setrdmnumber(Math.floor(Math.random() * 3))
+        props.setrdmnumber(Math.floor(Math.random() * 3))
         props.choixenemie()
      }
     function btnacceuilrock() {

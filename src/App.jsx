@@ -12,7 +12,7 @@ function App() {
   const [active, setactive] = useState("acceuil")
   const [choix, setchoix] = useState("")
 
-  const [choixenemy, setchoixenemy] = useState("")
+  const [choixenemy, setchoixenemy] = useState("paper")
   const [rdmnumber, setrdmnumber] = useState()
   function choixenemie(params) {
     if (rdmnumber==0) {
@@ -52,9 +52,8 @@ function App() {
             </div>
             </div>
       {
-        active == "picked" ? <Picked choix={choix} setactive={setactive} active={active} ></Picked> : <Acceuil choixenemie={choixenemie} rdmnumber={rdmnumber} setrdmnumber={setrdmnumber} choix={choix} setchoix={setchoix}  setactive={setactive} active={active} imgacceuil={imgacceuil}></Acceuil>
+        active == "picked" ? <Picked choixenemy={choixenemy} choix={choix} setactive={setactive} active={active} ></Picked> : <Acceuil choixenemie={choixenemie} rdmnumber={rdmnumber} setrdmnumber={setrdmnumber} choix={choix} setchoix={setchoix}  setactive={setactive} active={active} imgacceuil={imgacceuil}></Acceuil>
       }
-      
       <div className='w-[90%] h-[100px] top-[88%] flex justify-end items-center'>
         <button onClick={rulesshow} className='text-white font-semibold text-xl tracking-widest w-[170px] h-[50px] rounded-xl me-5 border-[2px]'>RULES</button>
       </div>
