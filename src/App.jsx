@@ -11,6 +11,22 @@ function App() {
   const rules = useRef()
   const [active, setactive] = useState("acceuil")
   const [choix, setchoix] = useState("")
+
+  const [choixenemy, setchoixenemy] = useState("")
+  const [rdmnumber, setrdmnumber] = useState()
+  function choixenemie(params) {
+    if (rdmnumber==0) {
+      setchoixenemy("paper")
+      console.log(choixenemy);
+    }else if (rdmnumber==1) {
+      setchoixenemy("scissors")
+      console.log(choixenemy);
+    }else if (rdmnumber==2) {
+      setchoixenemy("rock")
+      console.log(choixenemy);
+    }
+  };
+
   function btnacceuil() {
     setactive("picked")
     console.log(choix);
@@ -36,7 +52,7 @@ function App() {
             </div>
             </div>
       {
-        active == "picked" ? <Picked choix={choix} setactive={setactive} active={active} ></Picked> : <Acceuil choix={choix} setchoix={setchoix}  setactive={setactive} active={active} imgacceuil={imgacceuil}></Acceuil>
+        active == "picked" ? <Picked choix={choix} setactive={setactive} active={active} ></Picked> : <Acceuil choixenemie={choixenemie} rdmnumber={rdmnumber} setrdmnumber={setrdmnumber} choix={choix} setchoix={setchoix}  setactive={setactive} active={active} imgacceuil={imgacceuil}></Acceuil>
       }
       
       <div className='w-[90%] h-[100px] top-[88%] flex justify-end items-center'>

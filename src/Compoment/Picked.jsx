@@ -8,10 +8,17 @@ export default function Picked(props) {
     
     const [txtwinner, settxtwinner] = useState("YOU WIN")
     const [choix, setchoix] = useState("")
+    const [choixenemy, setchoixenemy] = useState("")
     function btnacceuil() {
         props.setactive("acceuil")
         console.log(props.choix);
     }
+    const [rdmnumber, setrdmnumber] = useState()
+    function choixenemie(params) {
+        setrdmnumber(Math.floor(Math.random() * 3))
+        console.log(rdmnumber);
+        setchoixenemy() 
+    };
     
     
     return (
