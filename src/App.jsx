@@ -33,22 +33,24 @@ function App() {
   function rulesshow() {
     rules.current.classList.toggle("hidden")
   }
-  // function resultat() {
+  // function countchange() {
   //       if (choix==choixenemy) {
   //           console.log("egalité");
-  //           settxtwinner("EGALITE")
+            
   //       }else if ((choix == "rock" && choixenemy == "scissors") || (choix == "scissors" && choixenemy == "paper") || (choix == "paper") && (choixenemy == "rock")) {
   //           console.log("gg");
+  //           setCount(+1)
   //           settxtwinner("YOU WIN")
   //       }else{
   //           settxtwinner("YOU LOSE")
+  //           setCount(-1)
   //           console.log("perdu");
   //       }
   //   }
 function btnacceuil() {
   setactive("picked")
   setchoix("paper")
-  
+ 
   choixenemie()
   
 }
@@ -79,7 +81,7 @@ function btnacceuilscissors() {
             </div>
             </div>
       {
-        active == "picked" ? <Picked count={count} setCount={setCount} settxtwinner={settxtwinner} txtwinner={txtwinner} choixenemy={choixenemy} choix={choix} setactive={setactive} active={active} ></Picked> : <Acceuil btnacceuilrock={btnacceuilrock} btnacceuilscissors={btnacceuilscissors} btnacceuil={btnacceuil} choixenemie={choixenemie} choix={choix} setchoix={setchoix}  setactive={setactive} active={active} imgacceuil={imgacceuil}></Acceuil>
+        active == "picked" ? <Picked count={count} setCount={setCount} settxtwinner={settxtwinner} txtwinner={txtwinner} choixenemy={choixenemy} choix={choix} setactive={setactive} active={active} ></Picked> : <Acceuil count={count} setCount={setCount}  btnacceuilrock={btnacceuilrock} btnacceuilscissors={btnacceuilscissors} btnacceuil={btnacceuil} choixenemie={choixenemie} choix={choix} setchoix={setchoix}  setactive={setactive} active={active} imgacceuil={imgacceuil}></Acceuil>
       }
       <div className='w-[90%] h-[100px] top-[88%] flex justify-end items-center'>
         <button onClick={rulesshow} className='text-white font-semibold text-xl tracking-widest w-[170px] h-[50px] rounded-xl me-5 border-[2px]'>RULES</button>
